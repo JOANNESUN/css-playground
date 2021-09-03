@@ -57,7 +57,8 @@ section.settings {
 .box {
   width: 150px;
   height: 150px;
-  background: #f381e6;
+ /* transform: rotate(0deg); */
+  background: #f381e6; 
 }
 
 button {
