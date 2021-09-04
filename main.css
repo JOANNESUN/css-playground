@@ -72,6 +72,16 @@ button {
   margin-right: 10px;
 }
 
+.white{
+  background-color: aquamarine;
+}
+
+.yellow
+{
+  background-color: darkorange;
+}
+
+
 label{
   color: #fff;
 }

@@ -1,43 +1,49 @@
-<!DOCTYPE>
+<!DOCTYPE >
 <html>
+  <head>
+    <title>CSS3 Perspective Playground</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
 
-<head>
-  <title>CSS3 Perspective Playground</title>
-  <link rel="stylesheet" type="text/css" href="main.css" />
-</head>
+  <body>
+    <div id="app">
+      <h2>CSS3 Perspective Playground</h2>
+      <main>
+        <section class="settings">
+          <div class="settings-container">
+            <label>perspective: {{monkey}} px;</label>
+            <input type="range" min="0" max="999" v-model="monkey" />
 
-<body>
-  <div id="app">
-    <h2>CSS3 Perspective Playground</h2>
-    <main>
-      <section class="settings">
-        <div class="settings-container">
-          <label>perspective: {{monkey}} px;</label>
-          <input type="range" min="0" max="999" v-model="monkey" />
+            <label>rotateX: {{rotateX}} deg; </label>
+            <input type="range" min="-180" max="180" v-model="rotateX" />
 
-          <label>rotateX: {{rotateX}} deg; </label>
-          <input type="range" min="-180" max="180" v-model="rotateX"/>
+            <label>rotateY: {{rotateY}} deg; </label>
+            <input type="range" min="-180" max="180" v-model="rotateY" />
 
-          <label>rotateY: {{rotateY}} deg; </label>
-          <input type="range" min="-180" max="180" v-model="rotateY"/>
+            <label>rotateZ: {{rotateZ}} deg; </label>
+            <input type="range" min="-180" max="180" v-model="rotateZ" />
 
-          <label>rotateZ: {{rotateZ}} deg; </label>
-          <input type="range" min="-180" max="180" v-model="rotateZ"/>
+            <button
+              type="button"
+              @click.prevent="reset"
+              v-bind:class="clicked ? 'yellow' : 'white'"
+              v-on:click="clicked = !clicked"
+            >
+              Reset
+            </button>
+            <button type="button" @click.prevent="copy">Copy</button>
+          </div>
+        </section>
+        <section class="output">
+          <div class="box-container">
+            <div class="box" :style="box" v-model=""></div>
+            <!-- <div class="box"  v-bind:style="[{width: size + 'px', height: size + 'px' },{transform: 'rotate('+rotateX +'deg)'},{transform: 'rotate('+rotateY +'deg)'},{transform: 'rotate('+rotateZ +'deg)'}]"></div> -->
+          </div>
+        </section>
+      </main>
+    </div>
 
-          <button type="button" @click.prevent="reset">Reset</button>
-          <button type="button" @click.prevent="copy">Copy</button>
-        </div>
-      </section>
-      <section class="output">
-        <div class="box-container">
-          <div class="box" :style="box"></div>
-          <!-- <div class="box"  v-bind:style="[{width: size + 'px', height: size + 'px' },{transform: 'rotate('+rotateX +'deg)'},{transform: 'rotate('+rotateY +'deg)'},{transform: 'rotate('+rotateZ +'deg)'}]"></div> -->
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <!-- <css-doodle>
+    <!-- <css-doodle>
     :doodle {
     @grid: 1x3 / 100vmax;
     position: absolute;
@@ -66,9 +72,8 @@
     }
   </css-doodle> -->
 
-  <script src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"></script>
-  <script src="https://unpkg.com/vue@next"></script>
-  <script src="app.js"></script>
-</body>
-
+    <script src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
